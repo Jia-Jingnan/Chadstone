@@ -3,11 +3,12 @@
 <!--测试套件-->
 <suite name="api">
     <!--测试集/模块-->
-        <test name="register">
+        <test name="login">
+            <parameter name="browser" value="firefox"></parameter>
             <!--测试类-->
             <classes>
                 <!--单个测试类定义-->
-                <class name="com.lilith.cases.FirefoxCase"></class>
+                <class name="com.lilith.cases.MultiBrowserCase"></class>
             </classes>
         </test>
 </suite> <!-- Suite -->
