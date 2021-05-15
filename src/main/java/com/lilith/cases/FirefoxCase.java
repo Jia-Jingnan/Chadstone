@@ -3,6 +3,7 @@ package com.lilith.cases;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
 
 /**
  * @Author:JiaJingnan
@@ -10,7 +11,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  */
 public class FirefoxCase {
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.setProperty("webdriver.gecko.driver", "src/main/java/com/lilith/driver/geckodriver");
         WebDriver driver = new FirefoxDriver();
         driver.get("http://127.0.0.1/youtest/html/login.html");
