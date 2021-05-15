@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!--测试套件-->
+<suite name="api">
+    <!--测试集/模块-->
+        <test name="register">
+            <!--测试类-->
+            <classes>
+                <!--单个测试类定义-->
+                <class name="com.lilith.cases.FirefoxCase"></class>
+            </classes>
+        </test>
+</suite> <!-- Suite -->
