@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class FirefoxCase {
 
     public static void main(String[] args) {
+        System.setProperty("webdriver.gecko.driver", "src/main/java/com/lilith/driver/geckodriver");
         WebDriver driver = new FirefoxDriver();
         driver.get("http://127.0.0.1/youtest/html/login.html");
         driver.findElement(By.name("username")).sendKeys("002@qq.com");
