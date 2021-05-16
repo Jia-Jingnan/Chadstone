@@ -17,7 +17,7 @@ public class MultiBrowserCase {
 
     @Parameters(value = {"browser"})
     @Test
-    public void test(String browser){
+    public void test(String browser) throws Exception{
 
         WebDriver driver = null;
 
@@ -32,17 +32,30 @@ public class MultiBrowserCase {
             System.out.println("暂不支持该浏览器类型");
             return;
         }
+
         // 操作浏览器窗口
-        WebDriver.Window window = driver.manage().window();
+        // WebDriver.Window window = driver.manage().window();
         // 设置窗口位置
-        window.setPosition(new Point(100,200));
+        // window.setPosition(new Point(100,200));
         // 设置窗口大小
-        window.setSize(new Dimension(600,600));
+        // window.setSize(new Dimension(600,600));
         // window.maximize();
         // 输出窗口大小
-        System.out.println(window.getSize().height + "," +  window.getSize().width);
+        // System.out.println(window.getSize().height + "," +  window.getSize().width);
 
         driver.get("http://127.0.0.1/youtest/html/login.html");
+        // 导航栏相关操作
+        driver.get("http://www.baidu.com");
+        Thread.sleep(1000);
+        // 后退
+        driver.navigate().back();
+        Thread.sleep(1000);
+        // 前进
+        driver.navigate().forward();
+        Thread.sleep(1000);
+        driver.navigate().back();
+        Thread.sleep(1000);
+        driver.navigate().refresh();
         driver.findElement(By.name("username")).sendKeys("002@qq.com");
         driver.findElement(By.name("password")).sendKeys("123123");
         driver.findElement(By.id("login")).click();
