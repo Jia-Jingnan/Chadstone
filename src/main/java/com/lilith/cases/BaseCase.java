@@ -35,7 +35,8 @@ public class BaseCase {
     }
 
     @AfterSuite
-    public void tearDown(){
+    public void tearDown() throws Exception{
+        Thread.sleep(2000);
         // 关闭驱动实例以及所有有自动化打开的实例窗口
         driver.quit();
     }
