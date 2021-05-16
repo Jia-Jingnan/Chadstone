@@ -1,7 +1,11 @@
 package com.lilith.cases;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 /**
  * @Author:JiaJingnan
@@ -24,6 +28,15 @@ public class ElementOperateCase extends BaseCase{
         boolean isEnabled = driver.findElement(By.name("password")).isEnabled();
         System.out.println(isEnabled);
         // 是否被选中
-        
+        Select select = new Select(driver.findElement(By.tagName("select")));
+        // 获取选项
+        List<WebElement> options = select.getOptions();
+        // 遍历选项
+        for (WebElement option : options) {
+            System.out.println(option);
+            // 判断是否被选中
+            boolean selected = option.isSelected();
+        }
+
     }
 }
