@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
  * @Author:JiaJingnan
  * @Date: 下午6:25 2021/5/16
  */
-public class ElementCase extends BaseCase {
+public class ElementLocatorCase extends BaseCase {
 
     @Test
     public void testElement() throws Exception{

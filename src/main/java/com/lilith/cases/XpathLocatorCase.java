@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
  * @Author:JiaJingnan
  * @Date: 上午12:29 2021/5/17
  */
-public class XpathCase extends BaseCase{
+public class XpathLocatorCase extends BaseCase{
 
     @Test
     public void test(){
