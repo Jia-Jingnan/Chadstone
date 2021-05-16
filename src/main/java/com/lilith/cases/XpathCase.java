@@ -16,5 +16,11 @@ public class XpathCase extends BaseCase{
         // 绝对路径定位
         driver.findElement(By.xpath("/html/body/form/dl/dd[1]/input")).sendKeys("002@qq.com");
 
+        // 相对路径
+        // driver.findElement(By.xpath("//body/form[1]/dl[1]/dd[2]/input[1]")).sendKeys("123123");
+        //driver.findElement(By.xpath("//input[@placeholder='密码']")).sendKeys("123123");
+        //driver.findElement(By.xpath("//input[@name='password']")).sendKeys("123123");
+        driver.findElement(By.xpath("//input[contains(@placeholder,'密')]")).sendKeys("123123");
+
     }
 }
