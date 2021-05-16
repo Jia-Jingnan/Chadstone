@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -31,5 +32,11 @@ public class BaseCase {
             System.out.println("暂不支持该浏览器类型");
             return;
         }
+    }
+
+    @AfterSuite
+    public void tearDown(){
+        // 关闭驱动实例以及所有有自动化打开的实例窗口
+        driver.quit();
     }
 }
