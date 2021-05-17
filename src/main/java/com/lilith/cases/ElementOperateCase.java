@@ -27,6 +27,7 @@ public class ElementOperateCase extends BaseCase{
         // 判断元素是否可编辑
         boolean isEnabled = driver.findElement(By.name("password")).isEnabled();
         System.out.println(isEnabled);
+        driver.get("file:///Users/jingnan/code/01-Github/webauto/src/main/resources/demo.html");
         // 是否被选中
         Select select = new Select(driver.findElement(By.tagName("select")));
         // 获取选项
@@ -36,6 +37,7 @@ public class ElementOperateCase extends BaseCase{
             System.out.println(option);
             // 判断是否被选中
             boolean selected = option.isSelected();
+            System.out.println(selected);
         }
 
     }
