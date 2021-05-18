@@ -5,6 +5,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @Author:JiaJingnan
  * @Date: 下午11:56 2021/5/18
@@ -13,6 +15,14 @@ public class AddProjectCase extends BaseCase {
 
     @Test
     public void test() throws Exception{
+
+        // pageLoad时间
+        driver.manage().timeouts().pageLoadTimeout(2, TimeUnit.SECONDS);
+
+        // 超时设置放在页面等待之前
+        // 隐式等待
+        driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+
         // 打开登陆页
         driver.get("http://localhost/youtest/html/login.html");
 
@@ -36,7 +46,9 @@ public class AddProjectCase extends BaseCase {
         js.executeScript("document.getElementsByName(\"host\")[1].value=\"localhost:8848\"");
         js.executeScript("document.getElementsByName(\"description\")[2].value=\"自动化测试项目\"");
 
+
         // 点击确定
         driver.findElement(By.className("alert-btn-p2")).click();
+
     }
 }
