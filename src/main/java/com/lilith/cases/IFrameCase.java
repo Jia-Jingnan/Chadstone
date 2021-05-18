@@ -18,6 +18,11 @@ public class IFrameCase extends BaseCase{
         driver.switchTo().frame(iframe);
         driver.findElement(By.name("email")).sendKeys("Knowit123@163.com");
 
+        // 还可以通过索引定位iframe，name或id
+
+        // 回到iframe上一级页面
+        driver.switchTo().parentFrame();
+
 
     }
 }
