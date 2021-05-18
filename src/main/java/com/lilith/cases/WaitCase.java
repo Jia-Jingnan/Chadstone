@@ -1,6 +1,7 @@
 package com.lilith.cases;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,5 +20,17 @@ public class WaitCase extends BaseCase {
         WebDriverWait webDriverWait = new WebDriverWait(driver,30,500);
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.id("name")));
 
+    }
+
+    public WebElement getElement(By by){
+        WebDriverWait webDriverWait = new WebDriverWait(driver,20);
+        try {
+            WebElement webElement = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(by));
+            return webElement;
+        } catch (Exception e){
+            System.out.println("定位元素超时");
+            e.printStackTrace();
+            return null;
+        }
     }
 }
