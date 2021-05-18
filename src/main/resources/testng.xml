@@ -3,12 +3,12 @@
 <!--测试套件-->
 <suite name="api">
     <!--测试集/模块-->
-        <test name="login">
+        <test name="webauto">
 
             <!--测试类-->
             <classes>
                 <!--单个测试类定义-->
-                <class name="com.lilith.cases.MultWindowCase"></class>
+                <class name="com.lilith.cases.SelectCase"></class>
             </classes>
         </test>
         <parameter name="browser" value="firefox"></parameter>
