@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @Author:JiaJingnan
  * @Date: 下午5:24 2021/5/16
@@ -32,6 +34,7 @@ public class BaseCase {
             System.out.println("暂不支持该浏览器类型");
             return;
         }
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @AfterSuite
