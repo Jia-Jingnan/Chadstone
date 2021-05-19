@@ -22,15 +22,17 @@ public class WaitCase extends BaseCase {
 
     }
 
-    public WebElement getElement(By by){
-        WebDriverWait webDriverWait = new WebDriverWait(driver,20);
-        try {
-            WebElement webElement = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(by));
-            return webElement;
-        } catch (Exception e){
-            System.out.println("定位元素超时");
-            e.printStackTrace();
-            return null;
-        }
-    }
+//    public WebElement getElementWhilePageIsReady(By by){
+//        WebDriverWait webDriverWait = new WebDriverWait(driver,20);
+//        try {
+//            String jsToExecute = "return document.readyState == 'complete'";
+//            boolean isReady = (Boolean) webDriverWait.until(ExpectedConditions.jsReturnsValue(jsToExecute));
+//            // WebElement webElement = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(by));
+//            // return webElement;
+//        } catch (Exception e){
+//            System.out.println("定位元素超时");
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
 }
