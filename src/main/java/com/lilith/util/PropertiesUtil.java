@@ -22,8 +22,8 @@ public class PropertiesUtil {
         }
     }
 
-    public static String getExcelPath(){
-        return properties.getProperty("excel.path");
+    public static String getRegisterExcelPath(){
+        return properties.getProperty("register.excel.path");
     }
 
     public static String getToken(){
