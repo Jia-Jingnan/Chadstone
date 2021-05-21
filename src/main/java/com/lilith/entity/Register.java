@@ -15,5 +15,5 @@ public class Register {
     private String username;
     private String password;
     private String passwordConfirm;
-    private String expectedTips
+    private String expectedTips;
 }
