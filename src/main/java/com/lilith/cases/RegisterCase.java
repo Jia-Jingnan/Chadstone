@@ -32,7 +32,7 @@ public class RegisterCase extends BaseCase {
     }
 
     @Test(dataProvider = "positiveDatas")
-    public void testPositive(String username, String password, String pwdconfirm){
+    public void testPositive(String username, String password, String pwdconfirm) throws Exception{
         // 访问注册页面
         driver.get("http://localhost/youtest/html/register.html");
         // 用户名
@@ -45,6 +45,7 @@ public class RegisterCase extends BaseCase {
         driver.findElement(By.className("submit_btn")).click();
 
         // 获取地址，是否跳转到登陆页面
+        Thread.sleep(3000);
         String currentUrl = driver.getCurrentUrl();
         boolean contains = currentUrl.contains("login.html");
         Assert.assertTrue(contains);
