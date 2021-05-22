@@ -32,6 +32,7 @@ public class RegisterUtil {
         List<Register> satisfied = new ArrayList<>();
         for (Register register : registerList) {
             if (flag.equals(register.getIsPostive())){
+                //System.out.println(register);
                 satisfied.add(register);
             }
         }
@@ -40,14 +41,12 @@ public class RegisterUtil {
 
         Class<Register> clazz = Register.class;
 
-        // 遍历对象，从registerList对象中取出要的数据存入datas中
-        for (int i = 0; i < registerList.size(); i++){
-            Register reg = registerList.get(i);
-            if (!"0".equals(reg.getIsPostive())){
+        // 遍历对象，从satisfied对象中取出要的数据存入datas中
+        for (int i = 0; i < satisfied.size(); i++){
+            Register reg = satisfied.get(i);
+            if (!flag.equals(reg.getIsPostive())){
                 continue;
             }
-
-            String value = "";
 
             // 循环出要取的列号
             for (int j = 0; j < cellNames.length; j++){
@@ -57,12 +56,11 @@ public class RegisterUtil {
                     // 获取到反射的方法对象
                     Method method = clazz.getMethod(methodName);
                     // System.out.println(methodName);
-                    value = (String) method.invoke(reg);
+                    String value = (String) method.invoke(reg);
                     datas[i][j] = value;
                 } catch (Exception e){
                     e.printStackTrace();
                 }
-                datas[i][j] = value;
             }
         }
         return datas;
@@ -71,7 +69,7 @@ public class RegisterUtil {
 
     public static void main(String[] args) {
         String[] cellNames = {"Username", "Password", "PasswordConfirm", "ExpectedTips"};
-        Object[][] negativeDatas = getDatas("0",cellNames);
+        Object[][] negativeDatas = getDatas("1",cellNames);
         for (Object[] negativeData : negativeDatas){
             for (Object neg : negativeData){
                 System.out.print("{" + neg + "}");
