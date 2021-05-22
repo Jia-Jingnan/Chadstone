@@ -1,0 +1,6 @@
+<pages>
+    <!--定义一个page对象-->
+    <page>
+        <element keyword="手机号" by="id" value="username" ></element>
+    </page>
+</pages>
