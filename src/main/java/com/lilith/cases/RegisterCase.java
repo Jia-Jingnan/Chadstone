@@ -1,6 +1,7 @@
 package com.lilith.cases;
 
 import com.lilith.util.RegisterUtil;
+import com.lilith.util.UILibraryUtil;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -18,16 +19,16 @@ public class RegisterCase extends BaseCase {
         // 访问注册页面
         driver.get("http://localhost/youtest/html/register.html");
         // 用户名
-        driver.findElement(By.id("username")).sendKeys(username);
+        UILibraryUtil.getElementByKeyword("注册页面","用户名").sendKeys(username);
         // 密码
-        driver.findElement(By.id("password")).sendKeys(password);
+        UILibraryUtil.getElementByKeyword("注册页面","密码").sendKeys(password);
         // 确认密码
-        driver.findElement(By.id("pwdconfirm")).sendKeys(pwdconfirm);
+        UILibraryUtil.getElementByKeyword("注册页面","重复密码").sendKeys(pwdconfirm);
         // 立即注册按钮
-        driver.findElement(By.className("submit_btn")).click();
+        UILibraryUtil.getElementByKeyword("注册页面","注册").click();
 
         // tips
-        String actualTips = driver.findElement(By.className("tips")).getText();
+        String actualTips = UILibraryUtil.getElementByKeyword("注册页面","错误提示").getText();
         Assert.assertEquals(actualTips,expectedTips);
     }
 
@@ -36,13 +37,13 @@ public class RegisterCase extends BaseCase {
         // 访问注册页面
         driver.get("http://localhost/youtest/html/register.html");
         // 用户名
-        driver.findElement(By.id("username")).sendKeys(username);
+        UILibraryUtil.getElementByKeyword("注册页面","用户名").sendKeys(username);
         // 密码
-        driver.findElement(By.id("password")).sendKeys(password);
+        UILibraryUtil.getElementByKeyword("注册页面","密码").sendKeys(password);
         // 确认密码
-        driver.findElement(By.id("pwdconfirm")).sendKeys(pwdconfirm);
+        UILibraryUtil.getElementByKeyword("注册页面","重复密码").sendKeys(pwdconfirm);
         // 立即注册按钮
-        driver.findElement(By.className("submit_btn")).click();
+        UILibraryUtil.getElementByKeyword("注册页面","注册").click();
 
         // 获取地址，是否跳转到登陆页面
         Thread.sleep(3000);
