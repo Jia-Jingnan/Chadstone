@@ -1,6 +1,7 @@
 <pages>
     <!--定义一个page对象-->
     <page name="注册页面">
+        <!--对应页面上的元素，keyword：页面元素关键字，by：定位方式，value：定位值-->
         <element keyword="用户名" by="id" value="username"></element>
         <element keyword="密码" by="id" value="password"></element>
         <element keyword="重复密码" by="id" value="pwdconfirm"></element>
