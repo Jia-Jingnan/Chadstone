@@ -60,7 +60,7 @@ public class RegisterCase extends BaseCase {
 
     @DataProvider
     public Object[][]  positiveDatas(){
-        String[] cellNames = {"Username", "Password", "PasswordConfirm", "ExpectedTips"};
+        String[] cellNames = {"Username", "Password", "PasswordConfirm"};
         Object[][] datas = RegisterUtil.getDatas("1", cellNames);
         return datas;
     }
