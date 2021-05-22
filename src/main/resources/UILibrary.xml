@@ -2,7 +2,7 @@
     <!--定义一个page对象-->
     <page keyword="注册页面">
         <!--对应页面上的元素，keyword：页面元素关键字，by：定位方式，value：定位值-->
-        <ele keyword="用户名" by="id" value="username"></>
+        <ele keyword="用户名" by="id" value="username"></ele>
         <ele keyword="密码" by="id" value="password"></ele>
         <ele keyword="重复密码" by="id" value="pwdconfirm"></ele>
         <ele keyword="注册" by="className" value="submit_btn"></ele>
