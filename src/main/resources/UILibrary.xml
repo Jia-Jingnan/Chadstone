@@ -1,6 +1,10 @@
 <pages>
     <!--定义一个page对象-->
-    <page>
-        <element keyword="手机号" by="id" value="username" ></element>
+    <page name="注册页面">
+        <element keyword="用户名" by="id" value="username"></element>
+        <element keyword="密码" by="id" value="password"></element>
+        <element keyword="重复密码" by="id" value="pwdconfirm"></element>
+        <element keyword="注册" by="className" value="submit_btn"></element>
+        <element keyword="错误提示" by="className" value="tips"></element>
     </page>
 </pages>
