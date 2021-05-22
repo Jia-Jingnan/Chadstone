@@ -26,12 +26,12 @@ public class RegisterUtil {
         }*/
     }
 
-    // 获取反向用例的数据，从registerList列表中筛选
-    public static Object[][] getNegativeDatas(String[] cellNames) {
+    // 获取所有用例的数据，通过flag为0或1，确定是反向或正向用例从registerList列表中筛选
+    public static Object[][] getDatas(String flag, String[] cellNames) {
         //
         List<Register> satisfied = new ArrayList<>();
         for (Register register : registerList) {
-            if ("0".equals(register.getIsPostive())){
+            if (flag.equals(register.getIsPostive())){
                 satisfied.add(register);
             }
         }
@@ -71,7 +71,7 @@ public class RegisterUtil {
 
     public static void main(String[] args) {
         String[] cellNames = {"Username", "Password", "PasswordConfirm", "ExpectedTips"};
-        Object[][] negativeDatas = getNegativeDatas(cellNames);
+        Object[][] negativeDatas = getDatas("0",cellNames);
         for (Object[] negativeData : negativeDatas){
             for (Object neg : negativeData){
                 System.out.print("{" + neg + "}");
