@@ -1,12 +1,19 @@
 package com.lilith.util;
 
+import com.lilith.cases.BaseCase;
 import com.lilith.entity.Ele;
 import com.lilith.entity.Page;
+import com.sun.xml.internal.rngom.parse.host.Base;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -76,8 +83,63 @@ public class UILibraryUtil {
         }
     }
 
-    public static WebElement getElementByKeyword(String pageKeyword, String uiElementkeyword){
+    public static WebElement getElementByKeyword(String pageKeyword, String eleKeyword){
 
-        return null;
+        WebElement element = null;
+        for (Page page : pageList){
+            if (pageKeyword.equals(page.getKeyword())){
+                List<Ele> eles = page.getEles();
+                for (Ele ele : eles) {
+                    // 比较ele标签的keyword是否与传入的eleKeyword一致，一致则为要找的元素，可以获的定位信息
+                    if (eleKeyword.equals(ele.getKeyword())){
+                        String by = ele.getBy();
+                        String value = ele.getValue();
+                        // 定位元素
+                        element = getElementWithBy(by,value);
+                    }
+                }
+            }
+        }
+        return element;
+    }
+
+    private static WebElement getElementWithBy(String by, String value) {
+
+        WebDriver driver = BaseCase.driver;
+        WebElement element = null;
+        // 添加显示等待
+        WebDriverWait wait = new WebDriverWait(driver,20);
+        By locator = null;
+        if ("id".equalsIgnoreCase(by)){
+            locator = By.id(value);
+        } else if ("name".equalsIgnoreCase(by)){
+            locator = By.name(value);
+        } else if ("className".equalsIgnoreCase(by)){
+            locator = By.className(value);
+        } else if ("tagName".equalsIgnoreCase(by)){
+            locator = By.tagName(value);
+        } else if ("linkText".equalsIgnoreCase(by)){
+            locator = By.linkText(value);
+        } else if ("partialLinkText".equalsIgnoreCase(by)){
+            locator = By.partialLinkText(value);
+        } else if ("cssSelector".equalsIgnoreCase(by)){
+            locator = By.cssSelector(value);
+        } else if ("xpath".equalsIgnoreCase(by)){
+            locator = By.xpath(value);
+        } else {
+            System.out.println("暂不支持" + by + "类型定位元素");
+        }
+
+        try {
+            element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        } catch (Exception e) {
+            if(e instanceof TimeoutException){
+                System.out.println("根据信息" + by + "和" + value + "定位元素超时");
+            }
+            e.printStackTrace();
+        }
+
+        return element;
+
     }
 }
