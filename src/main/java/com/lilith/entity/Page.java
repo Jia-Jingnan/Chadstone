@@ -13,6 +13,6 @@ import java.util.List;
 public class Page {
 
     private String keyword;
-    private List<Element> elements;
+    private List<Ele> eles;
 }
 
