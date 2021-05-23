@@ -4,6 +4,7 @@ import com.lilith.asserts.LilithAss;
 import com.lilith.util.RegisterUtil;
 import com.lilith.util.UILibraryUtil;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -31,8 +32,9 @@ public class RegisterCase extends BaseCase {
         UILibraryUtil.getElementByKeyword("注册页面","注册").click();
 
         // tips
-        String actualTips = UILibraryUtil.getElementByKeyword("注册页面","错误提示").getText();
-        Assert.assertEquals(actualTips,expectedTips);
+        WebElement tipElement = UILibraryUtil.getElementByKeyword("注册页面","错误提示");
+
+        LilithAss.assertTextPresent(tipElement,expectedTips);
     }
 
     @Test(dataProvider = "positiveDatas")
