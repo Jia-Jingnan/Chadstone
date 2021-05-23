@@ -1,5 +1,6 @@
 package com.lilith.cases;
 
+import com.lilith.asserts.LilithAss;
 import com.lilith.util.RegisterUtil;
 import com.lilith.util.UILibraryUtil;
 import org.openqa.selenium.By;
@@ -51,11 +52,8 @@ public class RegisterCase extends BaseCase {
 
         // 获取地址，是否跳转到登陆页面
         // Thread.sleep(3000); 使用显示等待跳转到login.html
-        WebDriverWait wait = new WebDriverWait(driver,30);
-        wait.until(ExpectedConditions.urlContains("login.html"));
-        String currentUrl = driver.getCurrentUrl();
-        boolean contains = currentUrl.contains("login.html");
-        Assert.assertTrue(contains);
+        String urlContains = "login.html";
+        LilithAss.assertUrlContains(urlContains);
     }
 
 
