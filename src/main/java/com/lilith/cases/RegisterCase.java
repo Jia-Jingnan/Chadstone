@@ -3,6 +3,8 @@ package com.lilith.cases;
 import com.lilith.util.RegisterUtil;
 import com.lilith.util.UILibraryUtil;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -45,8 +47,12 @@ public class RegisterCase extends BaseCase {
         // 立即注册按钮
         UILibraryUtil.getElementByKeyword("注册页面","注册").click();
 
+        // 点击注册会跳出alert弹出框显示注册成功，而不是直接跳转到登陆页面，要先点击确定
+
         // 获取地址，是否跳转到登陆页面
-        Thread.sleep(3000);
+        // Thread.sleep(3000); 使用显示等待跳转到login.html
+        WebDriverWait wait = new WebDriverWait(driver,30);
+        wait.until(ExpectedConditions.urlContains("login.html"));
         String currentUrl = driver.getCurrentUrl();
         boolean contains = currentUrl.contains("login.html");
         Assert.assertTrue(contains);
