@@ -19,7 +19,7 @@ public class RegisterUtil {
 
     // 将所有用例保存到registerList列表中
     static {
-        List<Register> list = ExcelUtil.load(PropertiesUtil.getRegisterExcelPath(), "用例", Register.class);
+        List<Register> list = ExcelUtil.load(PropertiesUtil.getCasePath("register.excel.path"), "用例", Register.class);
         registerList.addAll(list);
         /*for (Register register : list) {
             System.out.println(register);
