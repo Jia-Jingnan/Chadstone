@@ -22,11 +22,10 @@ public class PropertiesUtil {
         }
     }
 
-    public static String getRegisterExcelPath(){
-        return properties.getProperty("register.excel.path");
-    }
-    public static String getLoginExcelPath(){
-        return properties.getProperty("login.excel.path");
+
+    // 获取用例路径的通用方法
+    public static String getCasePath(String caseName){
+        return properties.getProperty(caseName);
     }
 
     public static String getToken(){
