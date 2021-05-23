@@ -15,6 +15,10 @@ public class LilithAss {
 
     public static WebDriverWait wait = new WebDriverWait(BaseCase.driver,30);
 
+    /**
+     * 判断url是否包含字符
+     * @param urlContains
+     */
     public static void assertUrlContains(String urlContains){
 
         boolean isContainUrl = true;
@@ -26,6 +30,11 @@ public class LilithAss {
         Assert.assertTrue(isContainUrl);
     }
 
+    /**
+     * 断言元素的文本值是否包含传入的文本值
+     * @param element
+     * @param text
+     */
     public static void assertTextPresent(WebElement element, String text){
         boolean textToBePresentElement = true;
         try {
@@ -34,7 +43,20 @@ public class LilithAss {
             textToBePresentElement = false;
         }
         Assert.assertTrue(textToBePresentElement);
+    }
 
+    /**
+     * 断言元素是否可点击
+     * @param element
+     */
+    public static void assertClickable(WebElement element){
+        boolean elementClickable = true;
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+        } catch (Exception e){
+            elementClickable = false;
+        }
+        Assert.assertTrue(elementClickable);
 
     }
 
