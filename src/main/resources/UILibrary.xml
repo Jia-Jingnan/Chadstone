@@ -8,4 +8,11 @@
         <ele keyword="注册" by="className" value="submit_btn"></ele>
         <ele keyword="错误提示" by="className" value="tips"></ele>
     </page>
+    <page keyword="登陆页面">
+        <!--对应页面上的元素，keyword：页面元素关键字，by：定位方式，value：定位值-->
+        <ele keyword="用户名" by="name" value="username"></ele>
+        <ele keyword="密码" by="name" value="password"></ele>
+        <ele keyword="登陆" by="id" value="login"></ele>
+        <ele keyword="错误提示" by="className" value="tips"></ele>
+    </page>
 </pages>
