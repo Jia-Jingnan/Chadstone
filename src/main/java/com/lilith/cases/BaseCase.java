@@ -2,6 +2,7 @@ package com.lilith.cases;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterSuite;
@@ -42,5 +43,32 @@ public class BaseCase {
         Thread.sleep(5000);
         // 关闭驱动实例以及所有有自动化打开的实例窗口
         driver.quit();
+    }
+
+    // 以下为行为的封装
+
+    /**
+     * 访问页面
+     * @param url
+     */
+    public void to (String url){
+        driver.get(url);
+    }
+
+    /**
+     * 往元素中写入内容
+     * @param element
+     * @param content
+     */
+    public void sendKeys(WebElement element, String content){
+        element.sendKeys(content);
+    }
+
+    /**
+     * 点击元素
+     * @param element
+     */
+    public void click(WebElement element){
+        element.click();
     }
 }
