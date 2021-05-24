@@ -6,8 +6,8 @@
 
     <groupId>com.lilith</groupId>
     <artifactId>webauto</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <description>关键字驱动的WebUI自动化测试框架</description>
+    <version>2.0-SNAPSHOT</version>
+    <description>行为驱动的WebUI自动化测试框架</description>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
