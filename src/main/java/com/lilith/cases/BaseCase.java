@@ -1,5 +1,6 @@
 package com.lilith.cases;
 
+import com.lilith.util.UILibraryUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -56,19 +57,21 @@ public class BaseCase {
     }
 
     /**
-     * 往元素中写入内容
-     * @param element
-     * @param content
+     *
+     * @param pageKeyword 元素定位信息
+     * @param eleKeyword 元素定位信息
+     * @param content 要输入的内容
      */
-    public void sendKeys(WebElement element, String content){
-        element.sendKeys(content);
+    public void sendKeys(String pageKeyword, String eleKeyword, String content){
+        UILibraryUtil.getElementByKeyword(pageKeyword,eleKeyword).sendKeys(content);
     }
 
     /**
      * 点击元素
-     * @param element
+     * @param pageKeyword 元素定位信息
+     * @param eleKeyword 元素定位信息
      */
-    public void click(WebElement element){
-        element.click();
+    public void click(String pageKeyword, String eleKeyword){
+        UILibraryUtil.getElementByKeyword(pageKeyword,eleKeyword).click();
     }
 }
