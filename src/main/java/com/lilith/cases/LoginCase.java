@@ -2,6 +2,7 @@ package com.lilith.cases;
 
 import com.lilith.asserts.LilithAss;
 import com.lilith.util.LoginUtil;
+import com.lilith.util.PropertiesUtil;
 import com.lilith.util.RegisterUtil;
 import com.lilith.util.UILibraryUtil;
 import org.openqa.selenium.WebElement;
@@ -18,7 +19,7 @@ public class LoginCase extends BaseCase {
     public void testNegative(String username, String password, String expectedTips){
 
         // 访问登陆页面
-        driver.get("http://localhost/youtest/html/login.html");
+        driver.get(PropertiesUtil.getPageUrl("login.url"));
         // 用户名
         UILibraryUtil.getElementByKeyword("登陆页面","用户名").sendKeys(username);
         // 密码
@@ -36,7 +37,7 @@ public class LoginCase extends BaseCase {
     public void testPositive(String username, String password){
 
         // 访问登陆页面
-        driver.get("http://localhost/youtest/html/login.html");
+        driver.get(PropertiesUtil.getPageUrl("login.url"));
         // 用户名
         UILibraryUtil.getElementByKeyword("登陆页面","用户名").sendKeys(username);
         // 密码

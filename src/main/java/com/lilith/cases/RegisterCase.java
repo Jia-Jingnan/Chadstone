@@ -1,6 +1,7 @@
 package com.lilith.cases;
 
 import com.lilith.asserts.LilithAss;
+import com.lilith.util.PropertiesUtil;
 import com.lilith.util.RegisterUtil;
 import com.lilith.util.UILibraryUtil;
 import org.openqa.selenium.By;
@@ -21,7 +22,7 @@ public class RegisterCase extends BaseCase {
     @Test(dataProvider = "negativeDatas")
     public void testNegative(String username, String password, String pwdconfirm, String expectedTips){
         // 访问注册页面
-        driver.get("http://localhost/youtest/html/register.html");
+        driver.get(PropertiesUtil.getPageUrl("register.url"));
         // 用户名
         UILibraryUtil.getElementByKeyword("注册页面","用户名").sendKeys(username);
         // 密码
@@ -40,7 +41,7 @@ public class RegisterCase extends BaseCase {
     @Test(dataProvider = "positiveDatas")
     public void testPositive(String username, String password, String pwdconfirm) throws Exception{
         // 访问注册页面
-        driver.get("http://localhost/youtest/html/register.html");
+        driver.get(PropertiesUtil.getPageUrl("register.url"));
         // 用户名
         UILibraryUtil.getElementByKeyword("注册页面","用户名").sendKeys(username);
         // 密码
