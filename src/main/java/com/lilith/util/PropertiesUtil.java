@@ -28,6 +28,10 @@ public class PropertiesUtil {
         return properties.getProperty(caseName);
     }
 
+    // 获取页面url的通用方法
+    public static String getPageUrl(String caseName){
+        return properties.getProperty(caseName);
+    }
     public static String getToken(){
         return properties.getProperty("token");
     }
