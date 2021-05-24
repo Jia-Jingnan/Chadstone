@@ -4,7 +4,6 @@ package com.lilith.util;
 
 import com.lilith.entity.Register;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,41 +28,14 @@ public class RegisterUtil {
     // 获取所有用例的数据，通过flag为0或1，确定是反向或正向用例从registerList列表中筛选
     public static Object[][] getDatas(String flag, String[] cellNames) {
         //
-        List<Register> satisfied = new ArrayList<>();
+        List<Object> satisfied = new ArrayList<>();
         for (Register register : registerList) {
             if (flag.equals(register.getIsPostive())){
                 //System.out.println(register);
                 satisfied.add(register);
             }
         }
-        // 保存反向用例的数组
-        Object[][] datas = new Object[satisfied.size()][cellNames.length];
-
-        Class<Register> clazz = Register.class;
-
-        // 遍历对象，从satisfied对象中取出要的数据存入datas中
-        for (int i = 0; i < satisfied.size(); i++){
-            Register reg = satisfied.get(i);
-            if (!flag.equals(reg.getIsPostive())){
-                continue;
-            }
-
-            // 循环出要取的列号
-            for (int j = 0; j < cellNames.length; j++){
-                try {
-                    // 使用反射
-                    String methodName = "get" + cellNames[j];
-                    // 获取到反射的方法对象
-                    Method method = clazz.getMethod(methodName);
-                    // System.out.println(methodName);
-                    String value = (String) method.invoke(reg);
-                    datas[i][j] = value;
-                } catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        }
-        return datas;
+        return BaseUtil.assembleDatas(cellNames,satisfied,Register.class);
 
     }
 
