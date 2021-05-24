@@ -22,15 +22,20 @@ public class RegisterCase extends BaseCase {
     @Test(dataProvider = "negativeDatas")
     public void testNegative(String username, String password, String pwdconfirm, String expectedTips){
         // 访问注册页面
-        driver.get(PropertiesUtil.getPageUrl("register.url"));
+        // driver.get(PropertiesUtil.getPageUrl("register.url"));
+        to(PropertiesUtil.getPageUrl("register.url"));
         // 用户名
-        UILibraryUtil.getElementByKeyword("注册页面","用户名").sendKeys(username);
+        // UILibraryUtil.getElementByKeyword("注册页面","用户名").sendKeys(username);
+        sendKeys(UILibraryUtil.getElementByKeyword("注册页面","用户名"),username);
         // 密码
-        UILibraryUtil.getElementByKeyword("注册页面","密码").sendKeys(password);
+        // UILibraryUtil.getElementByKeyword("注册页面","密码").sendKeys(password);
+        sendKeys(UILibraryUtil.getElementByKeyword("注册页面","密码"),password);
         // 确认密码
-        UILibraryUtil.getElementByKeyword("注册页面","重复密码").sendKeys(pwdconfirm);
+        // UILibraryUtil.getElementByKeyword("注册页面","重复密码").sendKeys(pwdconfirm);
+        sendKeys(UILibraryUtil.getElementByKeyword("注册页面","重复密码"),pwdconfirm);
         // 立即注册按钮
-        UILibraryUtil.getElementByKeyword("注册页面","注册").click();
+        // UILibraryUtil.getElementByKeyword("注册页面","注册").click();
+        click(UILibraryUtil.getElementByKeyword("注册页面","注册"));
 
         // tips
         WebElement tipElement = UILibraryUtil.getElementByKeyword("注册页面","错误提示");
