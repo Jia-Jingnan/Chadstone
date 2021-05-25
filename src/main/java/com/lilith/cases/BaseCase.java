@@ -1,15 +1,11 @@
 package com.lilith.cases;
 
+import com.lilith.listener.LilithListenerScreen;
 import com.lilith.util.UILibraryUtil;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,6 +13,7 @@ import java.util.concurrent.TimeUnit;
  * @Author:JiaJingnan
  * @Date: 下午5:24 2021/5/16
  */
+@Listeners(LilithListenerScreen.class)
 public class BaseCase {
 
     public static WebDriver driver;
