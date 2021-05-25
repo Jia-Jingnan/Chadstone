@@ -20,7 +20,7 @@ public class LilithListenerScreen extends TestListenerAdapter {
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-        System.out.println("第一个case失败执行的");
+        // System.out.println("第一个case失败执行的");
         // 从实例中获取driver
 
         BaseCase baseCase = (BaseCase) iTestResult.getInstance();
