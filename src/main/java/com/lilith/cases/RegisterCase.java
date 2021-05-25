@@ -4,11 +4,7 @@ import com.lilith.asserts.LilithAss;
 import com.lilith.util.PropertiesUtil;
 import com.lilith.util.RegisterUtil;
 import com.lilith.util.UILibraryUtil;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -19,7 +15,7 @@ import org.testng.annotations.Test;
  */
 public class RegisterCase extends BaseCase {
 
-    @Test(dataProvider = "negativeDatas")
+    @Test(dataProvider = "negativeDatas", description = "注册方向用例")
     public void testNegative(String username, String password, String pwdconfirm, String expectedTips){
         // 访问注册页面
         // driver.get(PropertiesUtil.getPageUrl("register.url"));
@@ -43,7 +39,7 @@ public class RegisterCase extends BaseCase {
         LilithAss.assertTextPresent(tipElement,expectedTips);
     }
 
-    @Test(dataProvider = "positiveDatas")
+    @Test(dataProvider = "positiveDatas", description = "注册正向用例")
     public void testPositive(String username, String password, String pwdconfirm) throws Exception{
         // 访问注册页面
         to(PropertiesUtil.getPageUrl("register.url"));
