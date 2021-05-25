@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <!--测试套件-->
-<suite name="api">
+<suite name="YouTest Web自动化测试">
+    <listeners>
+        <!--        <listener class-name="org.uncommons.reportng.HTMLReporter"></listener>-->
+        <!--        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>-->
+        <listener class-name="com.lilith.listener.TestReport"></listener>
+        <listener class-name="com.lilith.listener.LilithListenerScreen"></listener>
+    </listeners>
     <!--测试集/模块-->
-        <test name="webauto">
-
-            <!--测试类-->
-            <classes>
-                <!--单个测试类定义-->
-                <class name="com.lilith.cases.RegisterCase"></class>
-            </classes>
-        </test>
-        <parameter name="browser" value="firefox"></parameter>
+    <test name="注册页面">
+        <!--测试类-->
+        <classes>
+            <!--单个测试类定义-->
+            <class name="com.lilith.cases.RegisterCase"></class>
+        </classes>
+    </test>
+    <parameter name="browser" value="firefox"></parameter>
 </suite> <!-- Suite -->
