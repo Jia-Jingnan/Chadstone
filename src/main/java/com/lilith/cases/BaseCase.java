@@ -2,6 +2,7 @@ package com.lilith.cases;
 
 import com.lilith.listener.LilithListenerScreen;
 import com.lilith.util.UILibraryUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -14,6 +15,7 @@ import java.util.concurrent.TimeUnit;
  * @Date: 下午5:24 2021/5/16
  */
 @Listeners(LilithListenerScreen.class)
+@Slf4j
 public class BaseCase {
 
     public static WebDriver driver;
@@ -22,7 +24,8 @@ public class BaseCase {
     @BeforeSuite
     public void init(String browser) throws Exception{
 
-        System.out.println("浏览器：" + browser);
+        // System.out.println("浏览器：" + browser);
+        log.info("浏览器：" + browser);
         if ("firefox".equalsIgnoreCase(browser)){
             System.setProperty("webdriver.gecko.driver", "src/main/java/com/lilith/driver/geckodriver");
             driver = new FirefoxDriver();
@@ -30,7 +33,8 @@ public class BaseCase {
             System.setProperty("webdriver.chrome.driver", "src/main/java/com/lilith/driver/chromedriver");
             driver = new ChromeDriver();
         } else {
-            System.out.println("暂不支持该浏览器类型");
+            // System.out.println("暂不支持该浏览器类型");
+            log.error("暂不支持该浏览器类型");
             return;
         }
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -50,6 +54,7 @@ public class BaseCase {
      * @param url
      */
     public void to (String url){
+        log.info("进入" + url);
         driver.get(url);
     }
 
@@ -60,6 +65,7 @@ public class BaseCase {
      * @param content 要输入的内容
      */
     public void sendKeys(String pageKeyword, String eleKeyword, String content){
+        log.info("在" + pageKeyword + "页面的" + eleKeyword + "输入" + content);
         UILibraryUtil.getElementByKeyword(pageKeyword,eleKeyword).sendKeys(content);
     }
 
@@ -69,6 +75,7 @@ public class BaseCase {
      * @param eleKeyword 元素定位信息
      */
     public void click(String pageKeyword, String eleKeyword){
+        log.info("点击" + pageKeyword + "页面的" + eleKeyword);
         UILibraryUtil.getElementByKeyword(pageKeyword,eleKeyword).click();
     }
 }
