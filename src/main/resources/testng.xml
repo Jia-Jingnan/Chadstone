@@ -13,7 +13,7 @@
         <!--测试类-->
         <classes>
             <!--单个测试类定义-->
-            <class name="com.lilith.cases.RegisterCase"></class>
+            <class name="com.lilith.cases.AddProjectCase"></class>
         </classes>
     </test>
     <parameter name="browser" value="firefox"></parameter>
