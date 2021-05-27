@@ -16,12 +16,15 @@
         <ele keyword="错误提示" by="className" value="tips"></ele>
     </page>
 
-    <page keyword="添加列表页面">
+    <page keyword="项目列表页面">
         <!--对应页面上的元素，keyword：页面元素关键字，by：定位方式，value：定位值-->
         <ele keyword="项目" by="className" value="item_single"></ele>
-        <ele keyword="添加项目" by="className" value="className"></ele>
+        <ele keyword="添加项目按钮" by="className" value="btn-addinter2"></ele>
         <ele keyword="项目名称" by="name" value="name"></ele>
         <ele keyword="项目地址" by="name" value="host"></ele>
         <ele keyword="项目描述" by="name" value="description"></ele>
+        <ele keyword="确认按钮" by="className" value="alert-btn-p2"></ele>
+        <ele keyword="错误提示" by="xpath" value="valid_message"></ele>
+
     </page>
 </pages>
