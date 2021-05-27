@@ -39,4 +39,15 @@ public class AddProjectUtil {
         return datas;
     }
 
+    public static void main(String[] args) {
+        String[] cellNames = {"ProjectName", "ProjectAdd", "ProjectDesc"};
+        Object[][] negativeDatas = getDatas("0",cellNames);
+        for (Object[] negativeData : negativeDatas){
+            for (Object neg : negativeData){
+                System.out.print("{" + neg + "}");
+            }
+            System.out.println();
+        }
+    }
+
 }
