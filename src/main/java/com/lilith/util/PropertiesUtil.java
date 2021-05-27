@@ -1,5 +1,6 @@
 package com.lilith.util;
 
+import javax.servlet.http.Cookie;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -29,11 +30,11 @@ public class PropertiesUtil {
     }
 
     // 获取页面url的通用方法
-    public static String getPageUrl(String caseName){
-        return properties.getProperty(caseName);
+    public static String getPageUrl(String pageName){
+        return properties.getProperty(pageName);
     }
-    public static String getToken(){
-        return properties.getProperty("token");
+    public static String getCookie(String cookie){
+        return properties.getProperty(cookie);
     }
 
     public static String getReportName() {
