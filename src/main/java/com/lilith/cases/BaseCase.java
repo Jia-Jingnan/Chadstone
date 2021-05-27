@@ -3,6 +3,7 @@ package com.lilith.cases;
 import com.lilith.listener.LilithListenerScreen;
 import com.lilith.util.UILibraryUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -78,4 +79,23 @@ public class BaseCase {
         log.info("点击" + pageKeyword + "页面的" + eleKeyword);
         UILibraryUtil.getElementByKeyword(pageKeyword,eleKeyword).click();
     }
+
+    /**
+     * 刷新页面操作
+     */
+    public void refresh(){
+        driver.navigate().refresh();
+    }
+
+    /**
+     * 给页面设置cookie
+     * @param cookieName
+     * @param cookieValue
+     */
+    public void setCookie(String cookieName, String cookieValue){
+        Cookie cookie = new Cookie(cookieName, cookieValue);
+        driver.manage().addCookie(cookie);
+    }
+
+
 }
