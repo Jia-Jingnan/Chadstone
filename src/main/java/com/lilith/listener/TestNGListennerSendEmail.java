@@ -12,15 +12,10 @@ import java.io.File;
 public class TestNGListennerSendEmail extends LilithListener implements IExecutionListener {
 
     public void onExecutionStart() {
-        System.out.println("所有case开始执行");
+
+        log.info("ChadStone----------所有Case开始执行");
     }
 
-
-    // 报告名称使用的变量
-//	private long currentTime = System.currentTimeMillis();
-//	private SimpleDateFormat formatter = new SimpleDateFormat ("yyyy年MM月dd日HH时");
-//	private Date date = new Date(currentTime);
-//	private String reportdate = formatter.format(date);
 
 
     /**
