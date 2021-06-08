@@ -33,7 +33,7 @@ public class UILibraryUtil {
 
     static{
         // 解析xml
-        loadPages(PropertiesUtil.properties.getProperty("uilibrary.path"));
+        loadPages(PropertiesUtil.getProperty("uilibrary.path"));
     }
 
     // 解析UILibrary.xml
