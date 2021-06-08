@@ -1,47 +1,53 @@
 package com.lilith.util;
 
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+
 import javax.servlet.http.Cookie;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Properties;
 
 /**
  * @Author:JiaJingnan
  * @Date: 16:50 2020/4/13
  */
+@Slf4j
 public class PropertiesUtil {
 
     public static Properties properties = new Properties();
+    private static Properties props;
+
     static {
-        InputStream inputStream = null;
+        String fileName = "config.properties";
+        props = new Properties();
         try {
-            inputStream = new FileInputStream(new File("src/main/resources/config.properties"));
-            properties.load(inputStream);
-        } catch (Exception e) {
-            e.printStackTrace();
+            props.load(new InputStreamReader(PropertiesUtil.class.getClassLoader().getResourceAsStream(fileName),"UTF-8"));
+        } catch (IOException e) {
+            log.error("配置文件读取异常",e);
         }
     }
 
 
-    // 获取用例路径的通用方法
-    public static String getCasePath(String caseName){
-        return properties.getProperty(caseName);
+    public static String getProperty(String key){
+        String value = props.getProperty(key.trim());
+        if(StringUtils.isBlank(value)){
+            return null;
+        }
+        return value.trim();
     }
 
-    // 获取页面url的通用方法
-    public static String getPageUrl(String pageName){
-        return properties.getProperty(pageName);
-    }
-    public static String getCookie(String cookie){
-        return properties.getProperty(cookie);
+    public static String getProperty(String key,String defaultValue){
+
+        String value = props.getProperty(key.trim());
+        if(StringUtils.isBlank(value)){
+            value = defaultValue;
+        }
+        return value.trim();
     }
 
-    public static String getReportName() {
-        return properties.getProperty("reportName");
-    }
 
-    public static String getSheetName(){
-        return properties.getProperty("sheet.name");
+    public static void main(String[] args) {
+        String sheetName = getProperty("sheet.name");
+        System.out.println(sheetName);
     }
 }
