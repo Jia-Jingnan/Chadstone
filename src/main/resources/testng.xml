@@ -7,13 +7,14 @@
         <!--        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>-->
         <listener class-name="com.lilith.listener.TestReport"></listener>
         <listener class-name="com.lilith.listener.LilithListenerScreen"></listener>
+        <listener class-name="com.lilith.listener.TestNGListennerSendEmail"></listener>
     </listeners>
     <!--测试集/模块-->
     <test name="注册页面">
         <!--测试类-->
         <classes>
             <!--单个测试类定义-->
-            <class name="com.lilith.cases.AddProjectCase"></class>
+            <class name="com.lilith.cases.LoginCase"></class>
         </classes>
     </test>
     <parameter name="browser" value="firefox"></parameter>
