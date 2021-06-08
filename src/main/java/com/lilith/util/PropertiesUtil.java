@@ -14,7 +14,6 @@ import java.util.Properties;
 @Slf4j
 public class PropertiesUtil {
 
-    public static Properties properties = new Properties();
     private static Properties props;
 
     static {
