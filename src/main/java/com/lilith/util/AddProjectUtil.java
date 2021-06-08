@@ -18,7 +18,7 @@ public class AddProjectUtil {
 
     // 将所有用例保存到addProjectList列表中
     static {
-        List<AddProject> list = ExcelUtil.load(PropertiesUtil.getCasePath("add_project.excel.path"), "用例", AddProject.class);
+        List<AddProject> list = ExcelUtil.load(PropertiesUtil.getProperty("add_project.excel.path"), "用例", AddProject.class);
         addProjectList.addAll(list);
         /*for (AddProject register : list) {
             System.out.println(register);

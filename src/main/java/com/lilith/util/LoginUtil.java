@@ -18,7 +18,7 @@ public class LoginUtil {
 
     // 将所有用例保存到loginList列表中
     static {
-        List<Login> list = ExcelUtil.load(PropertiesUtil.getLoginExcelPath(), "用例", Login.class);
+        List<Login> list = ExcelUtil.load(PropertiesUtil.getProperty("login.excel.path"), "用例", Login.class);
         loginList.addAll(list);
         /*for (Login register : list) {
             System.out.println(register);

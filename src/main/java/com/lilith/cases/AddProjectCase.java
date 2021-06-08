@@ -22,7 +22,7 @@ public class AddProjectCase extends BaseCase {
     @BeforeTest
     public void beforeTest(){
         // 访问登陆页面
-        to(PropertiesUtil.getPageUrl("login.url"));
+        to(PropertiesUtil.getProperty("login.url"));
         // 用户名
         sendKeys("登陆页面","用户名","002@qq.com");
         // 密码
@@ -35,8 +35,8 @@ public class AddProjectCase extends BaseCase {
     public void testNegative(String projectName, String projectAdd, String projectDesc, String expectedTips) throws Exception{
 
         // 访问页面
-        to(PropertiesUtil.getPageUrl("add_project.url"));
-        setCookie(PropertiesUtil.getCookie("cookie.name"),PropertiesUtil.getCookie("cookie.value"));
+        to(PropertiesUtil.getProperty("add_project.url"));
+        setCookie(PropertiesUtil.getProperty("cookie.name"),PropertiesUtil.getProperty("cookie.value"));
         refresh();
         // 点击添加项目按钮
         click("项目列表页面","添加项目按钮");
@@ -71,7 +71,7 @@ public class AddProjectCase extends BaseCase {
     public void testPositive(String projectName, String projectAdd, String projectDesc) throws Exception{
 
         // 访问页面
-        to(PropertiesUtil.getPageUrl("add_project.url"));
+        to(PropertiesUtil.getProperty("add_project.url"));
 
         // 点击添加项目按钮
         click("项目列表页面","添加项目按钮");

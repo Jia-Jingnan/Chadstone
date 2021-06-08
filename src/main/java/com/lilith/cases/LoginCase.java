@@ -20,7 +20,7 @@ public class LoginCase extends BaseCase {
     public void testNegative(String username, String password, String expectedTips, String desc){
 
         // 访问登陆页面
-        to(PropertiesUtil.getPageUrl("login.url"));
+        to(PropertiesUtil.getProperty("login.url"));
         // 用户名
         sendKeys("登陆页面","用户名",username);
         // 密码
@@ -38,7 +38,7 @@ public class LoginCase extends BaseCase {
     public void testPositive(String username, String password){
 
         // 访问登陆页面
-        to(PropertiesUtil.getPageUrl("login.url"));
+        to(PropertiesUtil.getProperty("login.url"));
         // 用户名
         sendKeys("登陆页面","用户名", username);
         // 密码

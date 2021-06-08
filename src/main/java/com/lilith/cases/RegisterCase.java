@@ -22,7 +22,7 @@ public class RegisterCase extends BaseCase {
         log.info("测试用例描述：" + desc);
         // 访问注册页面
         // driver.get(PropertiesUtil.getPageUrl("register.url"));
-        to(PropertiesUtil.getPageUrl("register.url"));
+        to(PropertiesUtil.getProperty("register.url"));
         // 用户名
         // UILibraryUtil.getElementByKeyword("注册页面","用户名").sendKeys(username);
         sendKeys("注册页面","用户名",username);
@@ -46,7 +46,7 @@ public class RegisterCase extends BaseCase {
     public void testPositive(String username, String password, String pwdconfirm, String desc) throws Exception{
         log.info("测试用例描述：" + desc);
         // 访问注册页面
-        to(PropertiesUtil.getPageUrl("register.url"));
+        to(PropertiesUtil.getProperty("register.url"));
         // 用户名
         sendKeys("注册页面","用户名",username);
         // 密码
