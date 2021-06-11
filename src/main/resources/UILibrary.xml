@@ -25,6 +25,5 @@
         <ele keyword="项目描述" by="name" value="description"></ele>
         <ele keyword="确认按钮" by="className" value="alert-btn-p2"></ele>
         <ele keyword="错误提示" by="xpath" value="valid_message"></ele>
-
     </page>
 </pages>
