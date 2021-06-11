@@ -2,6 +2,7 @@ package com.lilith.listener;
 
 import com.google.common.io.Files;
 import com.lilith.cases.BaseCase;
+import com.lilith.util.PropertiesUtil;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -37,7 +38,7 @@ public class LilithListenerScreen extends TestListenerAdapter {
         String pngPath = testName + "-" +currentTime  + ".png";
 
         // 路径
-        String currentPath = System.getProperty("user.dir") + "/test-failure-shot";
+        String currentPath = System.getProperty("user.dir") + PropertiesUtil.getProperty("report.template.path");
 
         this.takeScreenShot(webDriver,currentPath,pngPath);
         super.onTestFailure(iTestResult);
