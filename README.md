@@ -1,6 +1,6 @@
 [English](./README.EN.md) | 简体中文
 
-<h1 align="center">Chadstone</h1><style>h1 {border-bottom: none}</style>
+<h1 align="center">Chadstone</h1>
 
 <h5 align="center">UI自动化测试框架</h5>
 <p align="center">基于 Selenium | TestNG 并使用Maven构建</p>
